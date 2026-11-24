@@ -8,6 +8,7 @@
 
     vars:
       company_name: "Company Learning"
+      company_region: "India"
 
     pre-run:
       - playbooks/base/pre-build.yaml
