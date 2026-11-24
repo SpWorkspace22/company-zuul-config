@@ -1,0 +1,13 @@
+- project-template:
+    name: company-mandatory-jobs
+    description: Company-wide mandatory ci Jobs
+
+    check:
+      jobs:
+        - company-sonar-scan
+        - company-security-scan
+
+    gate:
+      jobs:
+        - company-sonar-scan
+        - company-security-scan

@@ -1,0 +1,4 @@
+- project:
+    name: '^SpWorkspace22/.*-service$'
+    templates:
+      - company-mandatory-jobs

@@ -1,0 +1,6 @@
+- job:
+    name: base
+    parent: null
+    description: |
+      Company Learning tenant base job.
+      Common job behavior will be added here as we progress.
