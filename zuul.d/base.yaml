@@ -1,6 +1,16 @@
 - job:
     name: base
     parent: null
+
     description: |
       Company Learning tenant base job.
-      Common job behavior will be added here as we progress.
+      Provides common variables and lifecycle playbooks.
+
+    vars:
+      company_name: "Company Learning"
+
+    pre-run:
+      - playbooks/base/pre-build.yaml
+
+    post-run:
+      - playbooks/base/post-build.yaml

@@ -1,0 +1,12 @@
+- name: Company common pre-build tasks
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Display company information
+      ansible.builtin.debug:
+        msg: "Company: {{ company_name }}"
+
+    - name: Display common preparation message
+      ansible.builtin.debug:
+        msg: "Preparing environment for {{ zuul.job }}"

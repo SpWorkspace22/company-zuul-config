@@ -1,0 +1,12 @@
+- name: Company common post-build tasks
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Display build completion message
+      ansible.builtin.debug:
+        msg: "Build completed for {{ company_name }}"
+
+    - name: Display job completion information
+      ansible.builtin.debug:
+        msg: "Finished job: {{ zuul.job }}"
