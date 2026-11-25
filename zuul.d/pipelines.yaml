@@ -44,7 +44,6 @@
     success:
       github:
         check: success
-        merge: true
     failure:
       github:
         check: failure
