@@ -1,0 +1,29 @@
+- section:
+    name: company-kubernetes-section
+    connection: kubernetes
+
+- provider:
+    name: company-kubernetes-provider
+    driver: kubernetes
+    section: company-kubernetes-section
+
+    flavors:
+      - name: company-kubernetes-flavor
+
+    images:
+      - name: company-ubuntu-jammy
+        type: cloud
+
+    labels:
+      - name: company-ubuntu-jammy
+        image: company-ubuntu-jammy
+        flavor: company-kubernetes-flavor
+        kind: pod
+        description: Initial Ubuntu Jammy Kubernetes worker pod
+        spec:
+          containers:
+            - name: worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
