@@ -1,3 +1,6 @@
+- label:
+    name: ubuntu-jammy
+
 - section:
     name: company-learning-kubernetes-section
     connection: kubernetes
