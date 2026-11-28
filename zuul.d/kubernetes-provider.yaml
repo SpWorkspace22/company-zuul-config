@@ -1,15 +1,30 @@
+- image:
+    name: ubuntu-jammy
+    type: cloud
+
+- flavor:
+    name: kubernetes-pod
+
 - label:
     name: ubuntu-jammy
+    image: ubuntu-jammy
+    flavor: kubernetes-pod
 
 - section:
     name: company-learning-kubernetes-section
     connection: kubernetes
+    flavors:
+      - name: kubernetes-pod
 
 - provider:
     name: company-learning-kubernetes
     section: company-learning-kubernetes-section
+    images:
+      - name: ubuntu-jammy
     labels:
       - name: ubuntu-jammy
+        image: ubuntu-jammy
+        flavor: kubernetes-pod
         kind: pod
         reuse: false
         slots: 1
