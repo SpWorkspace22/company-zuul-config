@@ -1,6 +1,10 @@
 - section:
     name: company-kubernetes-section
     connection: kubernetes
+
+- provider:
+    name: company-kubernetes-provider
+    section: company-kubernetes-section
     labels:
       - name: company-ubuntu-jammy
         kind: pod
@@ -14,7 +18,3 @@
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
               args: ["sleep infinity"]
-
-- provider:
-    name: company-kubernetes-provider
-    section: company-kubernetes-section
