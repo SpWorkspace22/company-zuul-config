@@ -38,5 +38,4 @@
 
 - provider:
     name: company-kubernetes-provider
-    driver: kubernetes
     section: company-kubernetes-section
