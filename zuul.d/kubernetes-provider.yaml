@@ -1,14 +1,78 @@
+# ============================================================
+# Logical worker images
+# ============================================================
+
 - image:
-    name: ubuntu-jammy
+    name: company-nodejs-image
     type: cloud
+
+- image:
+    name: company-java-image
+    type: cloud
+
+- image:
+    name: company-python-image
+    type: cloud
+
+- image:
+    name: company-sonar-image
+    type: cloud
+
+- image:
+    name: company-security-image
+    type: cloud
+
+- image:
+    name: company-integration-image
+    type: cloud
+
+
+# ============================================================
+# Shared Kubernetes pod flavor
+# ============================================================
 
 - flavor:
     name: kubernetes-pod
 
+
+# ============================================================
+# Logical worker labels
+# ============================================================
+
 - label:
-    name: ubuntu-jammy
-    image: ubuntu-jammy
+    name: company-nodejs-worker
+    image: company-nodejs-image
     flavor: kubernetes-pod
+
+- label:
+    name: company-java-worker
+    image: company-java-image
+    flavor: kubernetes-pod
+
+- label:
+    name: company-python-worker
+    image: company-python-image
+    flavor: kubernetes-pod
+
+- label:
+    name: company-sonar-worker
+    image: company-sonar-image
+    flavor: kubernetes-pod
+
+- label:
+    name: company-security-worker
+    image: company-security-image
+    flavor: kubernetes-pod
+
+- label:
+    name: company-integration-worker
+    image: company-integration-image
+    flavor: kubernetes-pod
+
+
+# ============================================================
+# Kubernetes Section
+# ============================================================
 
 - section:
     name: company-learning-kubernetes-section
@@ -16,21 +80,103 @@
     flavors:
       - name: kubernetes-pod
 
+
+# ============================================================
+# Kubernetes Provider
+# ============================================================
+
 - provider:
     name: company-learning-kubernetes
     section: company-learning-kubernetes-section
+
     images:
-      - name: ubuntu-jammy
+      - name: company-nodejs-image
+      - name: company-java-image
+      - name: company-python-image
+      - name: company-sonar-image
+      - name: company-security-image
+      - name: company-integration-image
+
     labels:
-      - name: ubuntu-jammy
-        image: ubuntu-jammy
+      - name: company-nodejs-worker
+        image: company-nodejs-image
         flavor: kubernetes-pod
         kind: pod
         reuse: false
         slots: 1
         spec:
           containers:
-            - name: ubuntu-jammy
+            - name: nodejs-worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
+
+      - name: company-java-worker
+        image: company-java-image
+        flavor: kubernetes-pod
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: java-worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
+
+      - name: company-python-worker
+        image: company-python-image
+        flavor: kubernetes-pod
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: python-worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
+
+      - name: company-sonar-worker
+        image: company-sonar-image
+        flavor: kubernetes-pod
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: sonar-worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
+
+      - name: company-security-worker
+        image: company-security-image
+        flavor: kubernetes-pod
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: security-worker
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
+
+      - name: company-integration-worker
+        image: company-integration-image
+        flavor: kubernetes-pod
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: integration-worker
               image: ubuntu:jammy
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
