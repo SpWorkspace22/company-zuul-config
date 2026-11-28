@@ -1,0 +1,19 @@
+- section:
+    name: company-learning-kubernetes-section
+    connection: kubernetes
+
+- provider:
+    name: company-learning-kubernetes
+    section: company-learning-kubernetes-section
+    labels:
+      - name: ubuntu-jammy
+        kind: pod
+        reuse: false
+        slots: 1
+        spec:
+          containers:
+            - name: ubuntu-jammy
+              image: ubuntu:jammy
+              imagePullPolicy: IfNotPresent
+              command: ["/bin/sh", "-c"]
+              args: ["sleep infinity"]
