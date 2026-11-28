@@ -2,11 +2,6 @@
     name: company-kubernetes-section
     connection: kubernetes
 
-- provider:
-    name: company-kubernetes-provider
-    driver: kubernetes
-    section: company-kubernetes-section
-
     flavors:
       - name: company-kubernetes-flavor
 
@@ -27,3 +22,8 @@
               imagePullPolicy: IfNotPresent
               command: ["/bin/sh", "-c"]
               args: ["sleep infinity"]
+
+- provider:
+    name: company-kubernetes-provider
+    driver: kubernetes
+    section: company-kubernetes-section
