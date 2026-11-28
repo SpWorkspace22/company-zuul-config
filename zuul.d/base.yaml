@@ -10,8 +10,12 @@
       company_name: "Company Learning"
       company_region: "India"
 
+    roles:
+      - zuul: zuul/zuul-jobs
+
     pre-run:
       - playbooks/base/pre-build.yaml
 
     post-run:
       - playbooks/base/post-build.yaml
+      - playbooks/base/post-logs.yaml
