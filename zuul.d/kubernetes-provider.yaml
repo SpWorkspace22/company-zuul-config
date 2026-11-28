@@ -1,32 +1,11 @@
-- image:
-    name: company-ubuntu-jammy
-    type: cloud
-
-- flavor:
-    name: company-kubernetes-flavor
-
-- label:
-    name: company-ubuntu-jammy
-    image: company-ubuntu-jammy
-    flavor: company-kubernetes-flavor
-    description: Initial Ubuntu Jammy Kubernetes worker pod
-
 - section:
     name: company-kubernetes-section
     connection: kubernetes
-
-    flavors:
-      - name: company-kubernetes-flavor
-
-    images:
-      - name: company-ubuntu-jammy
-        type: cloud
-
     labels:
       - name: company-ubuntu-jammy
-        image: company-ubuntu-jammy
-        flavor: company-kubernetes-flavor
         kind: pod
+        slots: 1
+        reuse: false
         description: Initial Ubuntu Jammy Kubernetes worker pod
         spec:
           containers:

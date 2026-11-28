@@ -1,5 +1,0 @@
-- nodeset:
-    name: company-kubernetes-smoke-nodeset
-    nodes:
-      - name: worker
-        label: company-ubuntu-jammy
